@@ -1,0 +1,50 @@
+body {
+	background-image: url(../images/blackandredsplatter.png);
+	background-size: cover;
+	min-width: 100%;
+	min-height: 100%;
+	margin-left: 50px;
+}
+
+.page-header {
+	font-family: 'Reenie Beanie', cursive;
+	text-align: center;
+	color: white;
+}
+
+.header-font {
+	font-size: 75px;
+}
+
+.panel-body {
+	font-family: 'Reenie Beanie', cursive;
+	color: red;
+	font-size: 35px;
+}
+
+.panel-default {
+	margin-top: 5%;
+	margin-left: 20%;
+	margin-right: 20%;
+	height: 20%;
+	opacity: 0.5;
+}
+
+span {
+	font-weight: 700;
+}
+
+label {
+	margin-top: 20px;
+	margin-left: 20px;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
+input.submit-button {
+	margin-top: 15px;
+	color: black;
+	background-color: #ddd;
+}
+
+
