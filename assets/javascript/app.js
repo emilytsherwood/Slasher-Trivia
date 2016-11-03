@@ -30,8 +30,8 @@ var trivia = {
 	]
 };
 
-var points; //will tally each correct answer
-var losses; //will tally each incorrect answer
+var right = 1; //will tally each correct answer
+var wrong = 1; //will tally each incorrect answer
 var currentQ;
 // var userChoice; //On click event?
 //Create an if/else that will alert player if they've won or lost the total game
@@ -46,24 +46,45 @@ var currentQ;
 
 
 
-// //rendering questions and answers on the DOM
+//rendering questions and answers on the DOM
 
 // function firstQ(){
-// 	$('#question').html(trivia.questions[0].question);
-// 	$('.a').html(trivia.questions[0].choices[0]);
-// 	$('.b').html(trivia.questions[0].choices[1]);//CORRECT
-// 	$('.c').html(trivia.questions[0].choices[2]);
-// 	$('.d').html(trivia.questions[0].choices[3]);
+var questionIndex = 0;
+var answerIndex = 0;
+function setCurrentQuestion (i){
 // $('input[type=radio]').click(function(){
-// 	if($('input[value=choiceB').prop('checked')){
-// 		alert ('You are Correct!');
-// 	} else {
-// 		alert ('Incorrect!');
-// 	}
-// });
+	$('#question').html(trivia.questions[i].question);
+	$('.a').html(trivia.questions[i].choices[0]);
+	$('.b').html(trivia.questions[i].choices[1]);//CORRECT
+	$('.c').html(trivia.questions[i].choices[2]);
+	$('.d').html(trivia.questions[i].choices[3]);
+}//end of function
+$('input[type=radio]').click(function(){
+	var question = trivia.questions[questionIndex];
+	if($('input[type=radio]').prop('checked')){
+		alert ('You are Correct!');
+		console.log(right++);
+		next();
+	} else {
+		alert ('Incorrect!');
+		console.log(wrong++)
+	}
+});
+//Need to specify correct answer another way
+setCurrentQuestion(0);
+function next (){
+	setCurrentQuestion(questionIndex + 1);
+	//reset function, reset the radio buttons! So that B isn't pressed on next question on DOM
+}
+
+//select div and add a click handler 
+//and call setcurrent question with the next index
+});
 // };
 // firstQ();
 
+//display none
+//hide and show...
 
 // function secondQ(){
 // 	$('#question').html(trivia.questions[1].question);
@@ -71,13 +92,22 @@ var currentQ;
 // 	$('.b').html(trivia.questions[1].choices[1]);
 // 	$('.c').html(trivia.questions[1].choices[2]);//CORRECT
 // 	$('.d').html(trivia.questions[1].choices[3]);
-// $('input[type=radio]').click(function(){
-// 	if($('input[value=choiceC').prop('checked')){
-// 		alert ('You are Correct!');
-// 	} else {
-// 		alert ('Incorrect!');
-// 	}
-// });
+
+// 	for (var i = 0; i < trivia.questions[1].choices.length; i++){
+// 	$('input[type=radio]').click(function(){
+// 	var hello = $('input[type=radio');
+// 	var answerIndex = $(this).data('index');
+// 	console.log(trivia.questions[1].choices[0][answerIndex]);
+
+// 	hello.attr('data-index', i);
+// // 	// .prop('checked');
+// // 	if(hello){
+// // 		alert ('You are Correct!');
+// // 	} else {
+// // 		alert ('Incorrect!');
+// // 	}
+// })
+// };
 // };
 // secondQ();
 
@@ -116,22 +146,22 @@ var currentQ;
 // };
 // fourthQ();
 
-function fifthQ(){
-	$('#question').html(trivia.questions[4].question);
-	$('.a').html(trivia.questions[4].choices[0]);
-	$('.b').html(trivia.questions[4].choices[1]);
-	$('.c').html(trivia.questions[4].choices[2]);//CORRECT
-	$('.d').html(trivia.questions[4].choices[3]);
+// function fifthQ(){
+// 	$('#question').html(trivia.questions[4].question);
+// 	$('.a').html(trivia.questions[4].choices[0]);
+// 	$('.b').html(trivia.questions[4].choices[1]);
+// 	$('.c').html(trivia.questions[4].choices[2]);//CORRECT
+// 	$('.d').html(trivia.questions[4].choices[3]);
 
-	$('input[type=radio]').click(function(){
-	if($('input[value=choiceC').prop('checked')){
-		alert ('You are Correct!');
-	} else {
-		alert ('Incorrect!');
-	}
-});
-};
-fifthQ();
+// 	$('input[type=radio]').click(function(){
+// 	if($('input[value=choiceC').prop('checked')){
+// 		alert ('You are Correct!');
+// 	} else {
+// 		alert ('Incorrect!');
+// 	}
+// });
+// };
+// fifthQ();
 
 
 // function firstConditional(){
@@ -190,7 +220,7 @@ fifthQ();
 //must press submit button to move along
 
 
-});
+// });
 
 
 //for document.ready function
