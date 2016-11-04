@@ -38,39 +38,46 @@ function setCurrentQuestion(i) {
     $('.c').html(trivia.questions[i].choices[2]);
     $('.d').html(trivia.questions[i].choices[3]);
 } //end of function
-
-$('input[type=radio]').click(function() {
+setCurrentQuestion(0);
             var question = trivia.questions[questionIndex];
             console.log(questionIndex);
-            for (var i = 0; i < 4; i++) { //0-3 in the choices array
                 var choicesIndex = $('input[type=radio]');
-                choicesIndex.attr('data-index', i);
+                choicesIndex.attr('data-index');
                 choicesIndex.addClass('userChoice');
                 // $('label').html('.userChoice') 
-            }
-            //Making the click function relate to one of the choices the user picks
-            $('.userChoice').on('click', function() {
-                userGuess = $(this).data('index');
-            });
 
-            //Right or wrong answers
-            var correctAnswer = trivia.questions[questionIndex].answer;
-            if (userGuess == correctAnswer && currentAnswer == true) {
+            //Making the click function relate to one of the choices the user picks
+            $('input[type=radio]').on('click', function() {
+                userGuess = $(this).data('index');
+                console.log(userGuess);	
+                for (i = 0; i < 4; i++) {
+            };
+           // Right or wrong answers
+            var correctAnswer = trivia.questions[i].answer[i];
+            if (userGuess == correctAnswer) {
                 console.log(right++);
                 alert('You are correct');
                 next();
-            } else if (userGuess != correctAnswer && currentAnswer == true) {
+            } else 
+            { (userGuess != correctAnswer)
                 console.log(wrong++);
-                alert('Wrong! The correct answer was: ' + currentAnswer);
+                alert('Wrong!');
                 next();
             }
-
-            setCurrentQuestion(0);
+            
 
             function next() {
                 setCurrentQuestion(questionIndex + 1);
             }
+});
 
+// var correctAnswer = trivia.questions[i].answer;
+      		// if (correctAnswer == trivia.questions[i].answer)
+      		// {
+      		// 	alert ("Correct")
+      		// }
+      		// else {
+      		// 	alert ("No")
 
 // 	if($('input[type=radio]').prop('checked')){
 // 		alert ('You are Correct!');
