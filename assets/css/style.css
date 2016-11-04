@@ -19,7 +19,7 @@ body {
 .panel-body {
 	font-family: 'Reenie Beanie', cursive;
 	color: red;
-	font-size: 35px;
+	font-size: 40px;
 }
 
 .panel-default {
@@ -47,4 +47,19 @@ input.submit-button {
 	background-color: #ddd;
 }
 
+#start-button {
+	font-family: 'Reenie Beanie', cursive;
+	color: black;
+	font-size: 35px;
+	align: center;
+	display: inline;
+	float: left;
+	margin-right: 40px;
+}
+
+#timer-display {
+	display: inline;
+	color: black;
+	float: right;
+}
 
