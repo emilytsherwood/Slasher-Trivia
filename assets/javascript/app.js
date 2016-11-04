@@ -39,6 +39,7 @@ function setCurrentQuestion(i) {
     $('.d').html(trivia.questions[i].choices[3]);
 } //end of function
 setCurrentQuestion(0);
+
             var question = trivia.questions[questionIndex];
             console.log(questionIndex);
                 var choicesIndex = $('input[type=radio]');
@@ -47,27 +48,43 @@ setCurrentQuestion(0);
                 // $('label').html('.userChoice') 
 
             //Making the click function relate to one of the choices the user picks
-            $('input[type=radio]').on('click', function() {
+            $('input[type=radio]').one('click', function() {
                 userGuess = $(this).data('index');
                 console.log(userGuess);	
                 for (i = 0; i < 4; i++) {
             };
            // Right or wrong answers
-            var correctAnswer = trivia.questions[i].answer[i];
-            if (userGuess == correctAnswer) {
-                console.log(right++);
-                alert('You are correct');
-                next();
-            } else 
-            { (userGuess != correctAnswer)
-                console.log(wrong++);
-                alert('Wrong!');
-                next();
-            }
-            
+            // var correctAnswer = trivia.questions[i].answer[i];
+            // if (userGuess == correctAnswer) {
+            //     console.log(right++);
+            //     alert('You are correct');
+            //     next();
+            // } else 
+            // { (userGuess != correctAnswer)
+            //     console.log(wrong++);
+            //     alert('Wrong!');
+            //     next();
+            // }
+            if($('input[type=radio]').prop('checked')){
+				alert ('You are Correct!');
+				console.log(right++);
+				next();
+			} else {
+				alert ('Incorrect!');
+				console.log(wrong++)
+				next();
+				};
+
+resetQ();
+//Can do it one at a time...for each correct answer
+//Create a function for the conditional...
 
             function next() {
                 setCurrentQuestion(questionIndex + 1);
+            }
+
+            function resetQ() {
+			 $('input[type=radio]').prop('checked', false);
             }
 });
 
@@ -79,15 +96,15 @@ setCurrentQuestion(0);
       		// else {
       		// 	alert ("No")
 
-// 	if($('input[type=radio]').prop('checked')){
-// 		alert ('You are Correct!');
-// 		console.log(right++);
-// 		next();
-// 	} else {
-// 		alert ('Incorrect!');
-// 		console.log(wrong++)
-// 	}
-// });
+	// if($('input[type=radio]').prop('checked')){
+	// 	alert ('You are Correct!');
+	// 	console.log(right++);
+	// 	next();
+	// } else {
+	// 	alert ('Incorrect!');
+	// 	console.log(wrong++)
+	// }
+
 //Need to specify correct answer another way
 
 	//reset function, reset the radio buttons! So that B isn't pressed on next question on DOM
