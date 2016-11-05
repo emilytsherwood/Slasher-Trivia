@@ -66,12 +66,12 @@ $('input[type=radio]').on('click', function() {
     } else {
         (userGuess != correctAnswer)
         $('.wrong-score').html('Wrong:' + ' ' + wrong++);
-        alert('Wrong!')
+        alert('Wrong!');
         next();
     }
-
-    if (questionIndex == 5) {
-        alert("End");
+    console.log(questionIndex);
+    if (questionIndex  === 5) {
+        alert("The End");
     }
 });
 
@@ -79,9 +79,15 @@ $('input[type=radio]').on('click', function() {
 //Showing the next question as user answers
 function next() {
     questionIndex++;
-    setCurrentQuestion(questionIndex);
-    $('input[type=radio]').attr("checked", false);
-    var currentQ = trivia.questions[questionIndex].question;
+        if (questionIndex < 5){
+         setCurrentQuestion(questionIndex);
+        $('input[type=radio]').attr("checked", false);
+        var currentQ = trivia.questions[questionIndex].question;
+    }
+        else {
+            clearInterval(timer);
+            reset();
+        }
 };
 //function to set the question back to the first question
 //and timer back to original time
@@ -103,6 +109,8 @@ function reset() {
     }
 };
 });
+
+
 
 
 
