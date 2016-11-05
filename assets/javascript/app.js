@@ -1,4 +1,4 @@
-// $(document).ready(function() {
+$(document).ready(function() {
 var trivia = {
     questions: [{
         question: 'According to Complex.com, who is hailed as the ultimate all-time Queen Supreme of all scream queens?',
@@ -46,10 +46,10 @@ var countdown = 60;
 function myTimer() {
     $('#timer-display').html(countdown--);
     if (countdown < 0) {
-    clearInterval(timer);
-    alert("You are out of time!");
-    reset();
-}
+        clearInterval(timer);
+        alert("You are out of time!");
+        reset();
+    }
 }
 
 //Making the click function relate to one of the choices the user picks
@@ -66,15 +66,22 @@ $('input[type=radio]').on('click', function() {
     } else {
         (userGuess != correctAnswer)
         $('.wrong-score').html('Wrong:' + ' ' + wrong++);
-        alert('Wrong!');
+        alert('Wrong!')
         next();
     }
+
+    if (questionIndex == 5) {
+        alert("End");
+    }
 });
+
+
 //Showing the next question as user answers
 function next() {
     questionIndex++;
     setCurrentQuestion(questionIndex);
     $('input[type=radio]').attr("checked", false);
+    var currentQ = trivia.questions[questionIndex].question;
 };
 //function to set the question back to the first question
 //and timer back to original time
@@ -83,17 +90,20 @@ function reset() {
     var timer = setInterval(function() {
         myTimer()
     }, 1000);
-var countdown = 60;
+    var countdown = 60;
 
-function myTimer() {
-    $('#timer-display').html(countdown--);
-    if (countdown < 0) {
-    clearInterval(timer);
-    alert("You are out of time!");
-    reset();
-}
-}
+    function myTimer() {
+        $('#timer-display').html(countdown--);
+        if (countdown < 0) {
+            clearInterval(timer);
+            alert("You are out of time!");
+            $('input[type=radio]').attr("checked", false);
+            reset();
+        }
+    }
 };
+});
+
 
 
 
