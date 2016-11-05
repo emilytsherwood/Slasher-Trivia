@@ -4,22 +4,27 @@ var trivia = {
         question: 'According to Complex.com, who is hailed as the ultimate all-time Queen Supreme of all scream queens?',
         choices: ['Kate McNeil', 'Jamie Lee-Curtis', 'Mary Sellers', 'Neve Campbell'],
         answer: 1, //index position in the above array this is referring to
+        textAnswer: 'B, Jamie Lee-Curtis',
     }, {
         question: 'Which film is unique in that it was Harvey and Bob Weinstein’s first film as producers?',
         choices: ['Halloween', 'Scream', 'The Burning', 'Deep Red'],
         answer: 2,
+        textAnswer: 'C, The Burning',
     }, {
         question: 'Which film ruined the UK career of director Michael Powell?',
         choices: ['Peeping Tom', 'The Red Shoes', '49th Parallel', 'Uncle Silas'],
         answer: 0,
+        textAnswer: 'A, Peeping Tom',
     }, {
         question: 'Which famous American slasher film was based partly on the real-life case of the Gainesville Ripper?',
         choices: ['Halloween', 'Child\'s Play', 'Friday The 13th', 'Scream'],
         answer: 3,
+        textAnswer: 'D, Scream',
     }, {
         question: '"Whatever you do, don\'t fall asleep" is the famous line from which classic slasher flick?',
         choices: ['Halloween', 'The Burning', 'Nightmare on Elm Street', 'Scream'],
         answer: 2,
+        textAnswer: 'C, Nightmare on Elm Street',
     }]
 };
 
@@ -66,12 +71,14 @@ $('input[type=radio]').on('click', function() {
     } else {
         (userGuess != correctAnswer)
         $('.wrong-score').html('Wrong:' + ' ' + wrong++);
-        alert('Wrong!');
+        alert('Wrong! The answer is' + ' ' + trivia.questions[questionIndex].textAnswer);
         next();
-    }
+    };
+
+
     console.log(questionIndex);
     if (questionIndex  === 5) {
-        alert("The End");
+        alert("The End, your total score is" + ' ' + 'wrong:' + ' ' + wrong +  ' ' + 'right:' + ' ' + right);
     }
 });
 
@@ -83,14 +90,15 @@ function next() {
          setCurrentQuestion(questionIndex);
         $('input[type=radio]').attr("checked", false);
         var currentQ = trivia.questions[questionIndex].question;
-    }
+    }//Conditional statement to stop game once it hits last question in questions index
         else {
+            $('input[type=radio]').attr("checked", false);
             clearInterval(timer);
             reset();
         }
 };
 //function to set the question back to the first question
-//and timer back to original time
+//and timer back to original time and to clear radio buttons
 function reset() {
     setCurrentQuestion(0);
     var timer = setInterval(function() {
