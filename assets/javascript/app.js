@@ -67,12 +67,12 @@ setCurrentQuestion(0);
            // Right or wrong answers
             var correctAnswerIndex = trivia.questions[questionIndex].answer;
             if (userGuess == correctAnswerIndex) {
-                console.log(right++);
+                $('.right-score').html('Right:' + ' ' + right++);
                 alert('You are correct');
                 next();
             } else 
             { (userGuess != correctAnswerIndex)
-                console.log(wrong++);
+                $('.wrong-score').html('Wrong:' + ' ' + wrong++);
                 alert('Wrong!');
                 next();
             }

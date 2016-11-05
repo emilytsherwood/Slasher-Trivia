@@ -54,3 +54,17 @@ input.submit-button {
 	font-size: 50px;
 }
 
+.right-score {
+	color: black;
+	text-align: right;
+	margin: 0 auto;
+	font-size: 35px;
+}
+
+.wrong-score {	
+	color: black;
+	text-align: right;
+	margin: 0 auto;
+	font-size: 35px;
+}
+
