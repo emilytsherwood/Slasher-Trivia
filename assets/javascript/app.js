@@ -37,11 +37,11 @@ function setCurrentQuestion(i) {
     $('.d').html(trivia.questions[i].choices[3]);
 } //end of function
 setCurrentQuestion(0);
-
+//Setting timer for game for 60 seconds
 var timer = setInterval(function() {
     myTimer()
 }, 1000);
-var countdown = 130;
+var countdown = 60;
 
 function myTimer() {
     $('#timer-display').html(countdown--);
@@ -70,19 +70,20 @@ $('input[type=radio]').on('click', function() {
         next();
     }
 });
-
+//Showing the next question as user answers
 function next() {
     questionIndex++;
     setCurrentQuestion(questionIndex);
     $('input[type=radio]').attr("checked", false);
 };
-
+//function to set the question back to the first question
+//and timer back to original time
 function reset() {
     setCurrentQuestion(0);
     var timer = setInterval(function() {
         myTimer()
     }, 1000);
-var countdown = 5;
+var countdown = 60;
 
 function myTimer() {
     $('#timer-display').html(countdown--);
@@ -93,6 +94,16 @@ function myTimer() {
 }
 }
 };
+
+
+
+
+
+ 
+
+
+
+
 
 
         
