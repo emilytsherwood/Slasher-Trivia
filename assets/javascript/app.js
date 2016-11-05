@@ -92,7 +92,7 @@ resetQ();
         var timer = setInterval(function(){
     		myTimer()
 			}, 1000);
-			var d = 5;
+		var d = 5;
 			function myTimer() {
     		$('#timer-display').html(d--);
     // $('#timer-display').html (d-);
