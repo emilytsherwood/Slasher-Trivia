@@ -1,4 +1,4 @@
-# TriviaGame
+# Slasher Trivia Game
 Trivia Game - Week 5 Assignment
 
 Heroku Link:
