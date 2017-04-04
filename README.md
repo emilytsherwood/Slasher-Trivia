@@ -1,5 +1,5 @@
 # Slasher Trivia Game
-Trivia Game - Week 5 Assignment
+Trivia Game. Be fast, it's timed!
 
 Heroku Link:
 https://mighty-dawn-19486.herokuapp.com/
